@@ -17,13 +17,16 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
+  const [primary, ...rest] = projects;
+
   return (
-    <div className="pb-20 pt-10 sm:pb-24 sm:pt-14">
-      <Container>
+    <div className="relative overflow-hidden pb-20 pt-10 sm:pb-24 sm:pt-14">
+      <div className="pointer-events-none absolute inset-0 ambient-glow opacity-40" aria-hidden="true" />
+      <Container className="relative">
         <Reveal>
           <Link
             href="/#projects"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-navy"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-foreground"
           >
             <ArrowLeft className="size-4" aria-hidden="true" />
             Back to home
@@ -36,8 +39,12 @@ export default function ProjectsPage() {
           />
         </Reveal>
 
-        <Stagger className="mt-12 space-y-6">
-          {projects.map((project) => (
+        <Reveal className="mt-12">
+          <ProjectCard project={primary} primary />
+        </Reveal>
+
+        <Stagger className="mt-6 space-y-6">
+          {rest.map((project) => (
             <StaggerItem key={project.slug}>
               <ProjectCard project={project} featured />
             </StaggerItem>

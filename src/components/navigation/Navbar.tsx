@@ -43,29 +43,26 @@ export function Navbar() {
     <header
       className={cn(
         "sticky top-0 z-50 border-b transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300",
-        scrolled
-          ? "border-border/80 bg-background/85 shadow-sm backdrop-blur-md"
-          : "border-transparent bg-transparent",
+        scrolled || open
+          ? "border-border/80 bg-background/75 shadow-sm backdrop-blur-xl"
+          : "border-transparent bg-background/40 backdrop-blur-md",
       )}
     >
       <div className="container-page flex h-16 items-center justify-between gap-4 md:h-[4.25rem]">
         <Link
           href="/#home"
-          className="shrink-0 text-base font-semibold tracking-tight text-navy transition-colors hover:text-accent"
+          className="shrink-0 text-base font-semibold tracking-tight text-foreground transition-colors hover:text-accent"
           onClick={closeMenu}
         >
           {siteConfig.name}
         </Link>
 
-        <nav
-          aria-label="Primary"
-          className="hidden items-center gap-1 lg:flex"
-        >
+        <nav aria-label="Primary" className="hidden items-center gap-0.5 lg:flex">
           {siteConfig.nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-md px-3 py-2 text-sm font-medium text-muted transition-colors hover:bg-surface-muted hover:text-navy"
+              className="rounded-md px-3 py-2 text-sm font-medium text-muted transition-colors hover:bg-surface-muted hover:text-foreground"
             >
               {item.label}
             </Link>
@@ -78,17 +75,17 @@ export function Navbar() {
             download
             variant="secondary"
             size="sm"
-            className="hidden sm:inline-flex"
+            className="hidden uppercase tracking-wide sm:inline-flex"
             aria-label="Download CV"
           >
-            <Download className="size-4" aria-hidden="true" />
+            <Download className="size-3.5" aria-hidden="true" />
             Download CV
           </Button>
 
           <NativeButton
             variant="ghost"
             size="sm"
-            className="lg:hidden px-2.5"
+            className="px-2.5 lg:hidden"
             aria-expanded={open}
             aria-controls={menuId}
             aria-label={open ? "Close menu" : "Open menu"}
@@ -112,7 +109,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={reduceMotion ? undefined : { opacity: 0, height: 0 }}
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-t border-border bg-background lg:hidden"
+            className="overflow-hidden border-t border-border bg-background/95 backdrop-blur-xl lg:hidden"
           >
             <nav
               aria-label="Mobile"
@@ -123,7 +120,7 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={closeMenu}
-                  className="rounded-lg px-3 py-3 text-base font-medium text-navy transition-colors hover:bg-surface-muted"
+                  className="rounded-lg px-3 py-3 text-base font-medium text-foreground transition-colors hover:bg-surface-muted"
                 >
                   {item.label}
                 </Link>

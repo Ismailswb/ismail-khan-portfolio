@@ -60,7 +60,7 @@ export const engineeringApproach = [
   },
   {
     step: "03",
-    title: "Backend APIs",
+    title: "Backend",
     description:
       "Design NestJS REST APIs that encode business logic, validation, and secure access patterns.",
   },
@@ -72,7 +72,7 @@ export const engineeringApproach = [
   },
   {
     step: "05",
-    title: "Authentication & Authorization",
+    title: "Authentication",
     description:
       "Implement authentication and role-based authorization aligned to operational responsibilities.",
   },
@@ -104,23 +104,31 @@ export const engineeringApproach = [
 
 export const whatIBuild = [
   {
-    title: "Mobile Applications",
+    number: "01",
+    title: "Mobile",
     description:
       "React Native applications with reusable architecture, state management, API integration, and production deployment.",
+    technologies: ["React Native", "Expo", "Redux Toolkit"],
   },
   {
-    title: "Web Applications",
+    number: "02",
+    title: "Web",
     description:
       "Modern web applications, dashboards, admin portals, and customer-facing platforms using React, Next.js, and TypeScript.",
+    technologies: ["React", "Next.js", "TypeScript"],
   },
   {
-    title: "Backend Systems",
+    number: "03",
+    title: "Backend",
     description:
       "REST APIs, authentication, authorization, RBAC, business logic, database architecture, and integrations using NestJS and PostgreSQL.",
+    technologies: ["NestJS", "Node.js", "REST APIs", "RBAC"],
   },
   {
-    title: "Cloud & Deployment",
+    number: "04",
+    title: "Cloud",
     description:
       "GCP Linux VMs, Docker, Nginx, PM2, SSL/TLS, domains, CI/CD pipelines, and production environments.",
+    technologies: ["GCP", "Docker", "Nginx", "PM2", "CI/CD"],
   },
 ] as const;

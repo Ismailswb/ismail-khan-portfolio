@@ -14,7 +14,7 @@ export function ArchitectureDiagram({
   return (
     <div
       className={cn(
-        "rounded-2xl border border-border bg-surface p-6 shadow-sm sm:p-8",
+        "rounded-2xl border border-border bg-surface/80 p-6 sm:p-8",
         className,
       )}
     >
@@ -22,10 +22,10 @@ export function ArchitectureDiagram({
       <ol className="mx-auto max-w-md space-y-0">
         {layers.map((layer, index) => (
           <li key={`${layer.label}-${index}`} className="flex flex-col items-center">
-            <div className="flex w-full items-center justify-between gap-3 rounded-xl border border-border bg-background px-4 py-3.5">
-              <span className="text-sm font-semibold text-navy">{layer.label}</span>
+            <div className="flex w-full items-center justify-between gap-3 rounded-xl border border-border bg-background/70 px-4 py-3.5">
+              <span className="text-sm font-semibold text-foreground">{layer.label}</span>
               {layer.detail ? (
-                <span className="shrink-0 rounded-md border border-border bg-surface px-2 py-1 font-mono text-[11px] text-muted">
+                <span className="shrink-0 rounded-md border border-border bg-surface px-2 py-1 font-mono text-[11px] text-cyan">
                   {layer.detail}
                 </span>
               ) : null}

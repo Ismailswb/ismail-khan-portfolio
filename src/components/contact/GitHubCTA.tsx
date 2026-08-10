@@ -9,7 +9,7 @@ export function GitHubCTA() {
   return (
     <Section id="github" ariaLabelledby="github-heading" className="pt-0">
       <Reveal>
-        <div className="overflow-hidden rounded-2xl border border-border bg-surface p-8 shadow-sm sm:p-10">
+        <div className="overflow-hidden rounded-2xl border border-border bg-surface/70 p-8 sm:p-10">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             <div className="max-w-xl">
               <div className="mb-4 inline-flex size-11 items-center justify-center rounded-xl border border-border bg-accent-soft text-accent">
@@ -17,7 +17,7 @@ export function GitHubCTA() {
               </div>
               <h2
                 id="github-heading"
-                className="text-2xl font-semibold tracking-tight text-navy sm:text-3xl"
+                className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
               >
                 Explore My GitHub
               </h2>

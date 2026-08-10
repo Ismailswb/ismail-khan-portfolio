@@ -82,7 +82,7 @@ export const projects: Project[] = [
     ],
     outcome:
       "A production-oriented multi-branch ERP foundation covering inventory, sales, payments, recovery, and role-based operational workflows.",
-    accent: "#2563EB",
+    accent: "#3B82F6",
     placeholderLabel: "ERP dashboard & workflow views",
   },
   {
@@ -138,14 +138,14 @@ export const projects: Project[] = [
     ],
     outcome:
       "A cohesive service-provider platform spanning mobile, web, admin, backend, storage, and cloud deployment.",
-    accent: "#0EA5E9",
+    accent: "#22D3EE",
     placeholderLabel: "Mobile, web & admin product surfaces",
   },
   {
     number: "03",
     slug: "dispatchops",
     title: "DispatchOps",
-    category: "B2C Delivery Service Platform",
+    category: "B2C Delivery Platform",
     shortDescription:
       "Backend and infrastructure architecture for a B2C delivery platform, including APIs, database design, and production deployment infrastructure.",
     overview:
@@ -185,7 +185,7 @@ export const projects: Project[] = [
     ],
     outcome:
       "A backend and infrastructure foundation for delivery and order operations, ready for production deployment on GCP.",
-    accent: "#334155",
+    accent: "#64748B",
     placeholderLabel: "API, workflow & infrastructure views",
   },
   {
@@ -233,7 +233,7 @@ export const projects: Project[] = [
     ],
     outcome:
       "A social and communication product foundation connecting mobile and web clients through APIs, real-time communication, and media support.",
-    accent: "#6366F1",
+    accent: "#818CF8",
     placeholderLabel: "Communication & media product views",
   },
   {
@@ -279,7 +279,7 @@ export const projects: Project[] = [
     ],
     outcome:
       "A complete e-commerce stack spanning storefront, admin, backend, database, and deployment for a food and beverages brand.",
-    accent: "#0F766E",
+    accent: "#14B8A6",
     placeholderLabel: "Storefront & admin product views",
   },
 ];

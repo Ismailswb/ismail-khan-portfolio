@@ -61,12 +61,13 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
   const { previous, next } = getAdjacentProjects(project.slug as ProjectSlug);
 
   return (
-    <article className="pb-20 pt-10 sm:pb-24 sm:pt-14">
-      <Container>
+    <article className="relative overflow-hidden pb-20 pt-10 sm:pb-24 sm:pt-14">
+      <div className="pointer-events-none absolute inset-0 ambient-glow opacity-40" aria-hidden="true" />
+      <Container className="relative">
         <Reveal>
           <Link
             href="/projects"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-navy"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-foreground"
           >
             <ArrowLeft className="size-4" aria-hidden="true" />
             All projects
@@ -79,7 +80,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
               </span>
               <span className="text-sm text-muted">{project.category}</span>
             </div>
-            <h1 className="mt-4 text-3xl font-semibold tracking-tight text-navy sm:text-5xl">
+            <h1 className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-5xl">
               {project.title}
             </h1>
             <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">
@@ -109,7 +110,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
               <section aria-labelledby="overview-heading">
                 <h2
                   id="overview-heading"
-                  className="text-2xl font-semibold tracking-tight text-navy"
+                  className="text-2xl font-semibold tracking-tight text-foreground"
                 >
                   Overview
                 </h2>
@@ -123,7 +124,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
               <section aria-labelledby="role-heading">
                 <h2
                   id="role-heading"
-                  className="text-2xl font-semibold tracking-tight text-navy"
+                  className="text-2xl font-semibold tracking-tight text-foreground"
                 >
                   My Role
                 </h2>
@@ -137,7 +138,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
               <section aria-labelledby="stack-heading">
                 <h2
                   id="stack-heading"
-                  className="text-2xl font-semibold tracking-tight text-navy"
+                  className="text-2xl font-semibold tracking-tight text-foreground"
                 >
                   Technology Stack
                 </h2>
@@ -155,7 +156,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
               <section aria-labelledby="features-heading">
                 <h2
                   id="features-heading"
-                  className="text-2xl font-semibold tracking-tight text-navy"
+                  className="text-2xl font-semibold tracking-tight text-foreground"
                 >
                   Key Features
                 </h2>
@@ -163,7 +164,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
                   {project.features.map((feature) => (
                     <li
                       key={feature}
-                      className="relative rounded-xl border border-border bg-surface px-4 py-3 pl-10 text-sm leading-relaxed text-muted before:absolute before:left-4 before:top-1/2 before:size-1.5 before:-translate-y-1/2 before:rounded-full before:bg-accent"
+                      className="relative rounded-xl border border-border bg-surface/70 px-4 py-3 pl-10 text-sm leading-relaxed text-muted before:absolute before:left-4 before:top-1/2 before:size-1.5 before:-translate-y-1/2 before:rounded-full before:bg-accent"
                     >
                       {feature}
                     </li>
@@ -176,7 +177,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
               <section aria-labelledby="details-heading">
                 <h2
                   id="details-heading"
-                  className="text-2xl font-semibold tracking-tight text-navy"
+                  className="text-2xl font-semibold tracking-tight text-foreground"
                 >
                   Technical Details
                 </h2>
@@ -200,7 +201,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
             </Reveal>
 
             <Reveal delay={0.1}>
-              <div className="rounded-2xl border border-border bg-surface p-6 shadow-sm">
+              <div className="rounded-2xl border border-border bg-surface/70 p-6">
                 <p className="eyebrow mb-4">Engineering focus</p>
                 <ul className="space-y-2.5">
                   {project.engineeringPoints.map((point) => (
@@ -221,7 +222,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
           <section aria-labelledby="screenshots-heading" className="mt-16">
             <h2
               id="screenshots-heading"
-              className="text-2xl font-semibold tracking-tight text-navy"
+              className="text-2xl font-semibold tracking-tight text-foreground"
             >
               Screenshots
             </h2>
@@ -246,7 +247,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
           <section aria-labelledby="outcome-heading" className="mt-16">
             <h2
               id="outcome-heading"
-              className="text-2xl font-semibold tracking-tight text-navy"
+              className="text-2xl font-semibold tracking-tight text-foreground"
             >
               Outcome
             </h2>

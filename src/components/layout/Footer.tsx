@@ -4,11 +4,11 @@ import { Container } from "@/components/layout/Container";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-surface">
+    <footer className="border-t border-border bg-background-elevated">
       <Container className="py-12">
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <p className="text-base font-semibold text-navy">{siteConfig.name}</p>
+            <p className="text-base font-semibold text-foreground">{siteConfig.name}</p>
             <p className="mt-1 text-sm text-muted">{siteConfig.title}</p>
           </div>
 
@@ -17,7 +17,7 @@ export function Footer() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm text-muted transition-colors hover:text-navy"
+                className="text-sm text-muted transition-colors hover:text-foreground"
               >
                 {item.label}
               </Link>
@@ -26,7 +26,7 @@ export function Footer() {
               href={siteConfig.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-muted transition-colors hover:text-navy"
+              className="text-sm text-muted transition-colors hover:text-foreground"
             >
               GitHub
             </a>
@@ -34,7 +34,7 @@ export function Footer() {
               href={siteConfig.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-muted transition-colors hover:text-navy"
+              className="text-sm text-muted transition-colors hover:text-foreground"
             >
               LinkedIn
             </a>

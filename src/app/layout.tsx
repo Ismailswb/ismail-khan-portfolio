@@ -69,7 +69,7 @@ export default function RootLayout({
       lang="en"
       className={`${sans.variable} ${mono.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans text-foreground">
+      <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
         <JsonLd />
         <Navbar />
         <main className="flex-1">{children}</main>
