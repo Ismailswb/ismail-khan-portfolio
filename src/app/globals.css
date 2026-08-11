@@ -1,27 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --background: #05070d;
-  --background-elevated: #080c16;
-  --foreground: #f4f7fb;
-  --surface: #0b101c;
-  --surface-muted: #111827;
-  --surface-hover: #151d2e;
-  --border: rgba(148, 163, 184, 0.12);
-  --border-strong: rgba(148, 163, 184, 0.22);
-  --muted: #94a3b8;
-  --muted-soft: #64748b;
-  --accent: #3b82f6;
-  --accent-hover: #60a5fa;
-  --accent-soft: rgba(59, 130, 246, 0.12);
-  --cyan: #22d3ee;
-  --cyan-soft: rgba(34, 211, 238, 0.12);
-  --navy: #070b14;
-  --ring: #3b82f6;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
-  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.45);
+  --background: #09090b;
+  --background-elevated: #0c0c0e;
+  --foreground: #fafafa;
+  --surface: #121214;
+  --surface-muted: #18181b;
+  --surface-hover: #1c1c1f;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --muted: #a1a1aa;
+  --muted-soft: #71717a;
+  --accent: #f97316;
+  --accent-hover: #fb923c;
+  --accent-soft: rgba(249, 115, 22, 0.12);
+  --accent-glow: rgba(249, 115, 22, 0.28);
+  --copper: #ea580c;
+  --highlight: #f97316;
+  --highlight-soft: rgba(249, 115, 22, 0.1);
+  --success: #22c55e;
+  --navy: #09090b;
+  --ring: #f97316;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.5);
   --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.55);
-  --glow-blue: 0 0 40px rgba(59, 130, 246, 0.15);
 }
 
 @theme inline {
@@ -38,8 +40,10 @@
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-accent-soft: var(--accent-soft);
-  --color-cyan: var(--cyan);
-  --color-cyan-soft: var(--cyan-soft);
+  --color-copper: var(--copper);
+  --color-highlight: var(--highlight);
+  --color-highlight-soft: var(--highlight-soft);
+  --color-success: var(--success);
   --color-navy: var(--navy);
   --font-sans: var(--font-jakarta);
   --font-mono: var(--font-jetbrains);
@@ -92,7 +96,7 @@ body {
 
 .container-page {
   width: 100%;
-  max-width: 74rem;
+  max-width: 75rem;
   margin-inline: auto;
   padding-inline: 1.25rem;
 }
@@ -105,25 +109,25 @@ body {
 
 @media (min-width: 1280px) {
   .container-page {
-    padding-inline: 1.5rem;
+    max-width: 80rem;
+    padding-inline: 2.5rem;
   }
 }
 
 .section-pad {
-  padding-block: 5rem;
+  padding-block: 4.5rem;
 }
 
 @media (min-width: 768px) {
   .section-pad {
-    padding-block: 7rem;
+    padding-block: 5.5rem;
   }
 }
 
 .eyebrow {
-  font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -136,10 +140,10 @@ body {
 
 .grid-fade {
   background-image:
-    linear-gradient(to right, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse at center, black 15%, transparent 72%);
+  mask-image: radial-gradient(ellipse at center, black 12%, transparent 72%);
 }
 
 .noise-overlay {
@@ -151,7 +155,7 @@ body {
   pointer-events: none;
   position: absolute;
   inset: 0;
-  opacity: 0.035;
+  opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 180px 180px;
@@ -161,30 +165,82 @@ body {
 
 .ambient-glow {
   background:
-    radial-gradient(ellipse 70% 45% at 50% -10%, rgba(59, 130, 246, 0.14), transparent 55%),
-    radial-gradient(ellipse 40% 30% at 90% 20%, rgba(34, 211, 238, 0.06), transparent 50%),
-    radial-gradient(ellipse 35% 25% at 10% 60%, rgba(59, 130, 246, 0.05), transparent 50%);
+    radial-gradient(ellipse 55% 40% at 75% 20%, rgba(249, 115, 22, 0.12), transparent 55%),
+    radial-gradient(ellipse 40% 35% at 10% 50%, rgba(249, 115, 22, 0.05), transparent 50%),
+    radial-gradient(ellipse 45% 30% at 90% 85%, rgba(249, 115, 22, 0.06), transparent 50%);
 }
 
-.tech-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 40s linear infinite;
+.section-line {
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(249, 115, 22, 0.55),
+    rgba(249, 115, 22, 0.12),
+    transparent
+  );
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .tech-marquee {
-    animation: none;
+.accent-gradient {
+  background: linear-gradient(135deg, #fb923c 0%, #f97316 45%, #ea580c 100%);
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
   }
 }
 
-@keyframes marquee {
+@keyframes orbit-spin {
   from {
-    transform: translateX(0);
+    transform: rotate(0deg);
   }
   to {
-    transform: translateX(-50%);
+    transform: rotate(360deg);
   }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(0.92);
+  }
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.float-soft {
+  animation: float-soft 5s ease-in-out infinite;
+}
+
+.orbit-spin {
+  animation: orbit-spin 48s linear infinite;
+}
+
+.orbit-spin-reverse {
+  animation: orbit-spin 64s linear infinite reverse;
+}
+
+.pulse-dot {
+  animation: pulse-dot 2.2s ease-in-out infinite;
+}
+
+.arch-line-flow {
+  stroke-dasharray: 6 10;
+  animation: dash-flow 2.8s linear infinite;
 }
 
 @keyframes pulse-node {
@@ -199,24 +255,17 @@ body {
   }
 }
 
-@keyframes dash-flow {
-  to {
-    stroke-dashoffset: -24;
-  }
-}
-
 .arch-node-pulse {
   animation: pulse-node 3.2s ease-in-out infinite;
 }
 
-.arch-line-flow {
-  stroke-dasharray: 6 10;
-  animation: dash-flow 2.4s linear infinite;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .arch-node-pulse,
-  .arch-line-flow {
+  .float-soft,
+  .orbit-spin,
+  .orbit-spin-reverse,
+  .pulse-dot,
+  .arch-line-flow,
+  .arch-node-pulse {
     animation: none;
   }
 }

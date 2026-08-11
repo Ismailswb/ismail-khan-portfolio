@@ -1,9 +1,29 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import { siteConfig } from "@/data/site";
 import { Section } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
-import { GitHubIcon, LinkedInIcon } from "@/components/ui/BrandIcons";
-import { Reveal } from "@/components/ui/Reveal";
+import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
+
+const contactCards = [
+  {
+    label: "Email me",
+    value: siteConfig.email,
+    href: `mailto:${siteConfig.email}`,
+    icon: Mail,
+  },
+  {
+    label: "Call me",
+    value: siteConfig.phone,
+    href: siteConfig.phoneHref,
+    icon: Phone,
+  },
+  {
+    label: "Based in",
+    value: siteConfig.locationShort,
+    href: undefined,
+    icon: MapPin,
+  },
+] as const;
 
 export function Contact() {
   return (
@@ -13,103 +33,66 @@ export function Contact() {
       className="relative overflow-hidden"
     >
       <div className="pointer-events-none absolute inset-0 ambient-glow" aria-hidden="true" />
-      <div className="pointer-events-none absolute inset-0 grid-fade opacity-40" aria-hidden="true" />
-      <div className="noise-overlay absolute inset-0" aria-hidden="true" />
 
-      <div className="relative overflow-hidden rounded-3xl border border-border bg-surface/80 p-8 shadow-lg sm:p-12 lg:p-16">
-        <div
-          className="pointer-events-none absolute -right-20 -top-20 size-64 rounded-full bg-accent/10 blur-3xl"
-          aria-hidden="true"
-        />
-        <div
-          className="pointer-events-none absolute -bottom-24 -left-16 size-56 rounded-full bg-cyan/10 blur-3xl"
-          aria-hidden="true"
-        />
-
-        <div className="relative grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-16">
+      <div className="relative">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-12">
           <Reveal>
-            <p className="eyebrow">Contact</p>
             <h2
               id="contact-heading"
-              className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-5xl"
+              className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:text-[2.75rem] lg:leading-tight"
             >
-              {siteConfig.contact.heading}
+              Let&apos;s Build Something Great
             </h2>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+            <p className="mt-4 max-w-md text-base leading-relaxed text-muted">
               {siteConfig.contact.text}
             </p>
-
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Button href={`mailto:${siteConfig.email}`} variant="primary" size="lg">
-                <Mail className="size-4" aria-hidden="true" />
-                Email Me
-              </Button>
-              <Button
-                href={siteConfig.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="secondary"
-                size="lg"
-              >
-                <LinkedInIcon className="size-4" aria-hidden="true" />
-                LinkedIn
-              </Button>
-              <Button
-                href={siteConfig.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="secondary"
-                size="lg"
-              >
-                <GitHubIcon className="size-4" aria-hidden="true" />
-                GitHub
-              </Button>
-            </div>
           </Reveal>
 
-          <Reveal delay={0.08}>
-            <div className="rounded-2xl border border-border bg-background/50 p-6 sm:p-8">
-              <dl className="space-y-7">
-                <div>
-                  <dt className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-soft">
-                    <Mail className="size-3.5" aria-hidden="true" />
-                    Email
-                  </dt>
-                  <dd className="mt-2">
+          <Stagger className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+            {contactCards.map((card) => {
+              const Icon = card.icon;
+              const content = (
+                <>
+                  <div className="mb-3 flex size-9 items-center justify-center rounded-lg border border-accent/25 bg-accent-soft text-accent">
+                    <Icon className="size-4" aria-hidden="true" />
+                  </div>
+                  <p className="text-sm font-medium text-foreground break-all">
+                    {card.value}
+                  </p>
+                  <p className="mt-1 text-xs text-muted-soft">{card.label}</p>
+                </>
+              );
+
+              return (
+                <StaggerItem key={card.label}>
+                  {card.href ? (
                     <a
-                      href={`mailto:${siteConfig.email}`}
-                      className="text-base font-medium text-foreground transition-colors hover:text-accent"
+                      href={card.href}
+                      className="block h-full rounded-xl border border-border bg-surface p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/35"
                     >
-                      {siteConfig.email}
+                      {content}
                     </a>
-                  </dd>
-                </div>
-                <div>
-                  <dt className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-soft">
-                    <Phone className="size-3.5" aria-hidden="true" />
-                    Phone
-                  </dt>
-                  <dd className="mt-2">
-                    <a
-                      href={siteConfig.phoneHref}
-                      className="text-base font-medium text-foreground transition-colors hover:text-accent"
-                    >
-                      {siteConfig.phone}
-                    </a>
-                  </dd>
-                </div>
-                <div>
-                  <dt className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-soft">
-                    <MapPin className="size-3.5" aria-hidden="true" />
-                    Location
-                  </dt>
-                  <dd className="mt-2 text-base font-medium text-foreground">
-                    {siteConfig.locationShort}
-                  </dd>
-                </div>
-              </dl>
-            </div>
-          </Reveal>
+                  ) : (
+                    <div className="h-full rounded-xl border border-border bg-surface p-4">
+                      {content}
+                    </div>
+                  )}
+                </StaggerItem>
+              );
+            })}
+
+            <StaggerItem>
+              <Button
+                href={`mailto:${siteConfig.email}`}
+                variant="primary"
+                size="lg"
+                className="h-full min-h-[7.5rem] w-full flex-col gap-2 rounded-xl text-base"
+              >
+                Get In Touch
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Button>
+            </StaggerItem>
+          </Stagger>
         </div>
       </div>
     </Section>

@@ -37,7 +37,7 @@ export function Section({
     <section
       id={id}
       aria-labelledby={ariaLabelledby}
-      className={cn("section-pad scroll-mt-24", className)}
+      className={cn("section-pad scroll-mt-24 md:scroll-mt-28", className)}
     >
       <Container>{children}</Container>
     </section>

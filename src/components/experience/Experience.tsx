@@ -1,42 +1,54 @@
 import { education, experience } from "@/data/experience";
 import { Section } from "@/components/layout/Container";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function Experience() {
   return (
     <Section id="experience" ariaLabelledby="experience-heading" className="relative">
-      <div className="pointer-events-none absolute inset-0 grid-fade opacity-25" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-0 grid-fade opacity-15" aria-hidden="true" />
 
       <div className="relative">
-        <Reveal>
-          <SectionHeading
-            eyebrow="Experience"
-            title="Professional experience."
-            description="Roles focused on shipping production web, mobile, and backend systems."
-            titleId="experience-heading"
-          />
+        <Reveal className="flex items-center gap-4">
+          <h2
+            id="experience-heading"
+            className="shrink-0 text-2xl font-semibold tracking-tight text-accent sm:text-3xl"
+          >
+            Experience
+          </h2>
+          <span className="section-line" aria-hidden="true" />
         </Reveal>
 
-        <Stagger className="relative mt-12 space-y-8 before:absolute before:left-[11px] before:top-3 before:bottom-3 before:w-px before:bg-gradient-to-b before:from-accent/50 before:via-border before:to-transparent sm:before:left-[15px]">
-          {experience.map((item) => (
+        <Stagger className="relative mt-10 space-y-8">
+          {experience.map((item, index) => (
             <StaggerItem key={`${item.company}-${item.period}`}>
-              <article className="relative pl-10 sm:pl-12">
-                <span
-                  className="absolute left-0 top-2 size-6 rounded-full border-2 border-accent bg-background shadow-[0_0_16px_rgba(59,130,246,0.35)] sm:size-8"
-                  aria-hidden="true"
-                />
-                <div className="rounded-2xl border border-border bg-surface/70 p-6 transition-colors hover:border-border-strong sm:p-7">
-                  <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+              <article className="grid gap-4 md:grid-cols-[11rem_1.25rem_minmax(0,1fr)] md:gap-6">
+                <p className="pt-1 font-mono text-xs font-medium text-muted md:text-right md:text-sm">
+                  {item.period}
+                </p>
+
+                <div className="relative hidden md:block" aria-hidden="true">
+                  <span className="absolute left-1/2 top-2 size-3.5 -translate-x-1/2 rounded-full border-2 border-accent bg-accent shadow-[0_0_14px_rgba(249,115,22,0.55)]" />
+                  {index < experience.length - 1 ? (
+                    <span className="absolute left-1/2 top-6 bottom-[-2.5rem] w-px -translate-x-1/2 bg-border-strong" />
+                  ) : (
+                    <span className="absolute left-1/2 top-6 h-10 w-px -translate-x-1/2 bg-gradient-to-b from-border-strong to-transparent" />
+                  )}
+                </div>
+
+                <div className="rounded-xl border border-border bg-surface p-5 sm:p-6">
+                  <div className="flex items-start gap-3 md:block">
+                    <span
+                      className="mt-1.5 size-2.5 shrink-0 rounded-full bg-accent shadow-[0_0_10px_rgba(249,115,22,0.5)] md:hidden"
+                      aria-hidden="true"
+                    />
                     <div>
-                      <p className="text-sm font-medium text-accent">{item.company}</p>
-                      <h3 className="mt-1 text-lg font-semibold tracking-tight text-foreground sm:text-xl">
+                      <h3 className="text-lg font-semibold tracking-tight text-foreground sm:text-xl">
                         {item.role}
                       </h3>
+                      <p className="mt-1 text-sm font-medium text-accent">
+                        at {item.company}
+                      </p>
                     </div>
-                    <p className="shrink-0 font-mono text-xs text-muted sm:pt-1">
-                      {item.period}
-                    </p>
                   </div>
                   <ul className="mt-5 space-y-2.5">
                     {item.responsibilities.map((responsibility) => (
@@ -62,12 +74,16 @@ export function Education() {
   return (
     <Section id="education" ariaLabelledby="education-heading" className="pt-0">
       <Reveal>
-        <SectionHeading
-          eyebrow="Education"
-          title="Academic foundation."
-          titleId="education-heading"
-        />
-        <article className="mt-8 max-w-2xl rounded-2xl border border-border bg-surface/70 p-6 sm:p-8">
+        <div className="flex items-center gap-4">
+          <h2
+            id="education-heading"
+            className="shrink-0 text-2xl font-semibold tracking-tight text-accent sm:text-3xl"
+          >
+            Education
+          </h2>
+          <span className="section-line" aria-hidden="true" />
+        </div>
+        <article className="mt-8 max-w-2xl rounded-xl border border-border bg-surface p-6 sm:p-8">
           <h3 className="text-xl font-semibold tracking-tight text-foreground">
             {education.degree}
           </h3>

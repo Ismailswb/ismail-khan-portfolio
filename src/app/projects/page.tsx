@@ -5,7 +5,6 @@ import { projects } from "@/data/projects";
 import { Container } from "@/components/layout/Container";
 import { ProjectCard } from "@/components/projects/ProjectCard";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -31,22 +30,26 @@ export default function ProjectsPage() {
             <ArrowLeft className="size-4" aria-hidden="true" />
             Back to home
           </Link>
-          <SectionHeading
-            className="mt-6"
-            eyebrow="Projects"
-            title="Selected engineering work."
-            description="Case studies covering multi-branch ERP, service platforms, delivery backends, communication products, and e-commerce systems."
-          />
+          <div className="mt-6 flex items-center gap-4">
+            <h1 className="shrink-0 text-3xl font-semibold tracking-tight text-accent sm:text-4xl">
+              Projects
+            </h1>
+            <span className="section-line" aria-hidden="true" />
+          </div>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+            Case studies covering multi-branch ERP, service platforms, delivery
+            backends, communication products, and e-commerce systems.
+          </p>
         </Reveal>
 
         <Reveal className="mt-12">
-          <ProjectCard project={primary} primary />
+          <ProjectCard project={primary} primary featured layout="editorial" />
         </Reveal>
 
         <Stagger className="mt-6 space-y-6">
           {rest.map((project) => (
             <StaggerItem key={project.slug}>
-              <ProjectCard project={project} featured />
+              <ProjectCard project={project} featured layout="editorial" />
             </StaggerItem>
           ))}
         </Stagger>

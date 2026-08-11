@@ -6,23 +6,23 @@ type ButtonSize = "md" | "sm" | "lg";
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-accent text-white hover:bg-accent-hover shadow-[0_0_24px_rgba(59,130,246,0.25)] border border-accent/40",
+    "accent-gradient text-white hover:brightness-110 shadow-[0_8px_28px_rgba(249,115,22,0.3)] border border-accent/30",
   secondary:
-    "bg-surface text-foreground border border-border hover:border-border-strong hover:bg-surface-hover",
+    "bg-transparent text-foreground border border-white/20 hover:border-white/35 hover:bg-white/5",
   ghost:
     "bg-transparent text-foreground hover:bg-surface-muted border border-transparent",
   outline:
-    "bg-transparent text-accent border border-accent/35 hover:bg-accent-soft hover:border-accent/55",
+    "bg-transparent text-accent border border-accent/50 hover:bg-accent-soft hover:border-accent",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
   sm: "h-9 px-3.5 text-sm gap-1.5",
   md: "h-11 px-5 text-sm gap-2",
-  lg: "h-12 px-6 text-sm gap-2 tracking-wide uppercase font-semibold",
+  lg: "h-12 px-6 text-sm gap-2 font-semibold",
 };
 
 const baseClasses =
-  "inline-flex items-center justify-center rounded-md font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+  "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
 function isInternalHref(href: string) {
   return href.startsWith("/") && !href.startsWith("//");

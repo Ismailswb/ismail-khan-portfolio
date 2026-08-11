@@ -195,7 +195,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
             </Reveal>
           </div>
 
-          <div className="space-y-8 lg:sticky lg:top-28 lg:self-start">
+          <div className="space-y-8 lg:sticky lg:top-8 lg:self-start">
             <Reveal delay={0.08}>
               <ArchitectureDiagram layers={project.architecture} />
             </Reveal>

@@ -11,7 +11,8 @@ export const siteConfig = {
   location: "Pakistan (GMT+5) — Open to Remote",
   locationShort: "Pakistan — Open to Remote",
   availability: "Available for remote opportunities",
-  profileImage: "/images/profile.jpg",
+  profileImage: "/image/portfolio_image.png",
+  logo: "/image/logo.png",
   /** Replace with your production domain before deploying. */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://ismailkhan.dev",
   /** Replace with your real LinkedIn profile URL. */
@@ -32,31 +33,40 @@ export const siteConfig = {
     ],
   },
   contact: {
-    heading: "Let's build something.",
-    text: "Have a project, product idea, or engineering challenge?",
+    heading: "Let's build something great.",
+    text: "Have a project, product idea, or engineering challenge? I'm available for remote full-stack opportunities.",
   },
+  whatsappHref: "https://wa.me/923488609060",
   nav: [
+    { label: "Home", href: "/#home", id: "home" },
+    { label: "About", href: "/#about", id: "about" },
+    { label: "Projects", href: "/#projects", id: "projects" },
+    { label: "Experience", href: "/#experience", id: "experience" },
+    { label: "Skills", href: "/#skills", id: "skills" },
+    { label: "Contact", href: "/#contact", id: "contact" },
+  ],
+  footerLinks: [
     { label: "Home", href: "/#home" },
     { label: "About", href: "/#about" },
-    { label: "Projects", href: "/#projects" },
+    { label: "Projects", href: "/projects" },
     { label: "Experience", href: "/#experience" },
     { label: "Skills", href: "/#skills" },
     { label: "Contact", href: "/#contact" },
   ],
-  footerLinks: [
-    { label: "Home", href: "/#home" },
-    { label: "Projects", href: "/projects" },
-    { label: "Experience", href: "/#experience" },
-    { label: "Contact", href: "/#contact" },
+  /** Fact-based sidebar metrics only — derived from existing content. */
+  sidebarStats: [
+    { label: "Years Experience", value: "2+" },
+    { label: "Projects Shipped", value: "5" },
   ],
   heroStack: [
     "React Native",
     "Next.js",
+    "TypeScript",
     "NestJS",
     "PostgreSQL",
+    "Prisma",
     "GCP",
     "Docker",
-    "CI/CD",
   ],
   techStrip: [
     "React Native",
@@ -68,7 +78,9 @@ export const siteConfig = {
     "GCP",
     "Docker",
     "Nginx",
+    "PM2",
     "CI/CD",
+    "Git",
   ],
   careerProgression: [
     "React Native",

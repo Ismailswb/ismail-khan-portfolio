@@ -1,7 +1,6 @@
 import { skillGroups } from "@/data/skills";
 import { Section } from "@/components/layout/Container";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function Skills() {
   return (
@@ -13,19 +12,26 @@ export function Skills() {
       <div className="noise-overlay absolute inset-0" aria-hidden="true" />
 
       <div className="relative">
-        <Reveal>
-          <SectionHeading
-            eyebrow="Technical skills"
-            title="A practical full-stack toolkit."
-            description="Technologies and practices I use to design, build, and deploy production software."
-            titleId="skills-heading"
-          />
+        <Reveal className="flex items-center gap-4">
+          <h2
+            id="skills-heading"
+            className="shrink-0 text-2xl font-semibold tracking-tight text-accent sm:text-3xl"
+          >
+            Skills
+          </h2>
+          <span className="section-line" aria-hidden="true" />
+        </Reveal>
+        <Reveal delay={0.05}>
+          <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted">
+            Technologies and practices I use to design, build, and deploy
+            production software.
+          </p>
         </Reveal>
 
-        <Stagger className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <Stagger className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {skillGroups.map((group) => (
             <StaggerItem key={group.category}>
-              <article className="group h-full rounded-2xl border border-border bg-surface/70 p-6 transition-all duration-300 hover:border-accent/30 hover:bg-surface-hover/70">
+              <article className="group h-full rounded-xl border border-border bg-surface p-5 transition-all duration-300 hover:border-accent/30 sm:p-6">
                 <div className="flex items-center justify-between gap-3">
                   <h3 className="text-base font-semibold text-foreground">
                     {group.category}
@@ -38,7 +44,7 @@ export function Skills() {
                   {group.items.map((item) => (
                     <span
                       key={item}
-                      className="rounded-md border border-border bg-background/40 px-2.5 py-1.5 text-xs text-muted transition-colors group-hover:border-border-strong group-hover:text-foreground"
+                      className="rounded-full border border-border bg-background/40 px-2.5 py-1.5 text-xs text-muted transition-colors group-hover:border-border-strong group-hover:text-foreground"
                     >
                       {item}
                     </span>
