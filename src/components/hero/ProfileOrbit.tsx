@@ -3,19 +3,8 @@
 import { useReducedMotion } from "framer-motion";
 import { siteConfig } from "@/data/site";
 import { ProfileImage } from "@/components/ui/ProfileImage";
-import { TechMark } from "@/components/ui/BrandIcons";
+import { OrbitTechIcon } from "@/components/hero/OrbitTechIcon";
 import { cn } from "@/lib/utils";
-
-const outerOrbit = [
-  "React Native",
-  "Next.js",
-  "TypeScript",
-  "NestJS",
-  "PostgreSQL",
-  "Docker",
-] as const;
-
-const innerOrbit = ["GCP", "Prisma"] as const;
 
 type ProfileOrbitProps = {
   className?: string;
@@ -23,6 +12,7 @@ type ProfileOrbitProps = {
 
 export function ProfileOrbit({ className }: ProfileOrbitProps) {
   const reduceMotion = useReducedMotion();
+  const orbitTechs = siteConfig.heroStack;
 
   return (
     <div
@@ -51,8 +41,8 @@ export function ProfileOrbit({ className }: ProfileOrbitProps) {
           cy="50"
           r="44"
           fill="none"
-          stroke="rgba(249,115,22,0.28)"
-          strokeWidth="0.35"
+          stroke="rgba(249,115,22,0.35)"
+          strokeWidth="0.4"
           strokeDasharray="1.2 2.4"
           className={reduceMotion ? undefined : "arch-line-flow"}
         />
@@ -61,85 +51,37 @@ export function ProfileOrbit({ className }: ProfileOrbitProps) {
           cy="50"
           r="36"
           fill="none"
-          stroke="rgba(255,255,255,0.1)"
-          strokeWidth="0.3"
+          stroke="rgba(255,255,255,0.12)"
+          strokeWidth="0.35"
           strokeDasharray="1 2.2"
-        />
-        <circle
-          cx="50"
-          cy="50"
-          r="28"
-          fill="none"
-          stroke="rgba(249,115,22,0.18)"
-          strokeWidth="0.28"
-          strokeDasharray="0.8 2"
         />
       </svg>
 
-      <div
-        className={cn(
-          "absolute inset-0",
-          !reduceMotion && "orbit-spin",
-        )}
-        aria-hidden="true"
-      >
-        {outerOrbit.map((tech, index) => {
-          const angle = (index / outerOrbit.length) * Math.PI * 2 - Math.PI / 2;
-          const radius = 44;
-          const x = 50 + Math.cos(angle) * radius;
-          const y = 50 + Math.sin(angle) * radius;
+      {orbitTechs.map((tech, index) => {
+        const angle = (index / orbitTechs.length) * Math.PI * 2 - Math.PI / 2;
+        const radius = 44;
+        const x = 50 + Math.cos(angle) * radius;
+        const y = 50 + Math.sin(angle) * radius;
 
-          return (
+        return (
+          <div
+            key={tech}
+            className="absolute z-[2] -translate-x-1/2 -translate-y-1/2"
+            style={{ left: `${x}%`, top: `${y}%` }}
+          >
             <div
-              key={tech}
-              className="absolute -translate-x-1/2 -translate-y-1/2"
-              style={{ left: `${x}%`, top: `${y}%` }}
+              className={cn(
+                "flex size-12 items-center justify-center rounded-xl border border-white/10 bg-[#141418] p-2 shadow-[0_4px_20px_rgba(0,0,0,0.45)] sm:size-14 sm:p-2.5",
+                !reduceMotion && "float-soft",
+              )}
+              style={{ animationDelay: `${index * 0.35}s` }}
             >
-              <div
-                className={cn(
-                  "flex size-10 items-center justify-center rounded-xl border border-border bg-surface/95 shadow-md backdrop-blur-sm sm:size-11",
-                  !reduceMotion && "orbit-spin-reverse",
-                )}
-              >
-                <TechMark name={tech} className="size-5 sm:size-6" />
-              </div>
+              <OrbitTechIcon name={tech} className="size-7 sm:size-8" />
+              <span className="sr-only">{tech}</span>
             </div>
-          );
-        })}
-      </div>
-
-      <div
-        className={cn(
-          "absolute inset-0",
-          !reduceMotion && "orbit-spin-reverse",
-        )}
-        aria-hidden="true"
-      >
-        {innerOrbit.map((tech, index) => {
-          const angle =
-            (index / innerOrbit.length) * Math.PI * 2 - Math.PI / 2 + 0.6;
-          const radius = 32;
-          const x = 50 + Math.cos(angle) * radius;
-          const y = 50 + Math.sin(angle) * radius;
-
-          return (
-            <div
-              key={tech}
-              className="absolute -translate-x-1/2 -translate-y-1/2"
-              style={{ left: `${x}%`, top: `${y}%` }}
-            >
-              <div
-                className={cn(
-                  "flex size-9 items-center justify-center rounded-lg border border-border bg-surface/95 shadow-md backdrop-blur-sm sm:size-10",
-                  !reduceMotion && "orbit-spin",
-                )}
-              >
-                <TechMark name={tech} className="size-4.5 sm:size-5" />
-              </div>
-            </div>
-          );
-        })}
-      </div>
+          </div>
+        );
+      })}
 
       <div className="absolute inset-[24%] flex items-center justify-center">
         <div className="relative w-full max-w-[16rem]">
